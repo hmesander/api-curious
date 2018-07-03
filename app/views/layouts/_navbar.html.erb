@@ -1,0 +1,6 @@
+<% if current_user %>
+  <h1>Welcome, <%= current_user.name %>!</h1>
+  <h2><%= link_to "Logout", logout_path %></h2>
+<% else %>
+  <h2><%= link_to "Sign in with Github", :github_login %></h1>
+<% end %>
