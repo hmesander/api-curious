@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'dashboard#index'
   get '/logout', to: 'sessions#destroy'
   get '/repos', to: 'repos#index'
+  get '/events', to: 'events#index'
 
   resources :users, only: [:show]
 end
