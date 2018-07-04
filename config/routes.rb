@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
   get '/repos', to: 'repos#index'
   get '/events', to: 'events#index'
+  get '/orgs', to: 'orgs#index'
 
   resources :users, only: [:show]
 end
