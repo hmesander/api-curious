@@ -1,0 +1,6 @@
+<ul>
+  <h2><%= @repo_search.repos.count %> Repositories</h2>
+</ul>
+<% @repo_search.repos.each do |repo| %>
+  <li><%= link_to repo.name, repo.url %></li>
+<% end %>
