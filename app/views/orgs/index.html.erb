@@ -1,0 +1,6 @@
+<ul>
+  <h2><%= @org_search.orgs.count %> Organizations</h2>
+</ul>
+<% @org_search.orgs.each do |org| %>
+  <li><%= link_to org.name, org.url %></li>
+<% end %>
