@@ -1,0 +1,8 @@
+<ul>
+  <h2>Recent Commits</h2>
+</ul>
+<% @event_search.events.each do |event| %>
+  <% event.commit_messages.each do |commit| %>
+    <li><%= event.repo %>: <%= link_to commit[:message], commit[:url] %></li>
+  <% end %>
+<% end %>
