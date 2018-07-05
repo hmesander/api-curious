@@ -1,4 +1,4 @@
 <%= link_to "Profile Information", user_path(current_user) %>
-<%= link_to "Repositories", repos_path %>
+<%= link_to "Repositories", "/#{current_user.nickname}/repos" %>
 <%= link_to "Recent Commits", events_path %>
 <%= link_to "My Organizations", orgs_path %>
