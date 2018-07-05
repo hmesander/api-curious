@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy', as: :logout
   get '/:nickname', to: 'users#show'
   get '/:nickname/repos', to: 'repos#index'
-  get '/:nickname/events', to: 'events#index'
+  get '/:nickname/activity', to: 'events#index'
   get '/:nickname/organizations', to: 'orgs#index'
 end

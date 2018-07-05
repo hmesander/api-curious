@@ -26,7 +26,7 @@ def stub_omniauth
   )
 end
 
-feature 'User visits the user dashboard' do
+feature 'User clicks on Recent Commits link' do
   include Capybara::DSL
 
   before(:each) do
@@ -34,17 +34,16 @@ feature 'User visits the user dashboard' do
     stub_omniauth
   end
 
-  scenario 'they see their profile information', :vcr do
+  scenario 'they see a list of their recent commits', :vcr do
     visit root_path
 
     click_link 'Sign in with Github'
+    click_link 'Recent Activity'
 
-    expect(current_path).to eq('/hmesander')
-    expect(page).to have_xpath("//img[contains(@src,'https://avatars0.githubusercontent.com/u/33385692?s=400&u=a0cfc39c9abc7b8fb80c85c6fc7999bdc96ed7b8&v=4')]")
-    expect(page).to have_link('Repositories')
-    expect(page).to have_link('Organizations')
-    expect(page).to have_link('Recent Activity')
-    expect(page).to have_content('Number of Followers: 1')
-    expect(page).to have_content('Number of People Following: 0')
+    expect(current_path).to eq('/hmesander/activity')
+    expect(page).to have_content('Recent Commits')
+    expect(page).to have_content('hmesander/api-curious:')
+    expect(page).to have_link('Merge pull request #6 from hmesander/orgs User Organizations')
+    expect(page).to have_css('.commit', count: 21)
   end
 end
