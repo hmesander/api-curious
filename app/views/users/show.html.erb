@@ -1,4 +1,7 @@
 <h1><%= current_user.name %>'s Profile Information</h1>
 <img src=<%= current_user.avatar_url %><br>
+<%= link_to "Repositories", "/#{current_user.nickname}/repos" %>
+<%= link_to "Recent Commits", "/#{current_user.nickname}/events" %>
+<%= link_to "Organizations", "/#{current_user.nickname}/organizations" %>
 <h3>Number of Followers: <%= current_user.follower_count %></h3>
 <h3>Number of People Following: <%= current_user.following_count %></h3>

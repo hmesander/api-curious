@@ -31,7 +31,7 @@ describe 'Visitor' do
 
     click_link 'Sign in with Github'
 
-    expect(current_path).to eq(dashboard_path)
+    expect(current_path).to eq('/hmesander')
     expect(page).to have_content('Welcome, Haley Mesander!')
     expect(page).to have_link('Logout')
   end
