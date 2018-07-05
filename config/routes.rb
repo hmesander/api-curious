@@ -4,11 +4,9 @@ Rails.application.routes.draw do
 
   get '/auth/github', as: :github_login
   get '/auth/github/callback', to: 'sessions#create'
-  get '/dashboard', to: 'dashboard#index'
-  get '/logout', to: 'sessions#destroy'
-  get '/repos', to: 'repos#index'
-  get '/events', to: 'events#index'
-  get '/orgs', to: 'orgs#index'
-
-  resources :users, only: [:show]
+  delete '/logout', to: 'sessions#destroy', as: :logout
+  get '/:nickname', to: 'users#show'
+  get '/:nickname/repos', to: 'repos#index'
+  get '/:nickname/activity', to: 'events#index'
+  get '/:nickname/organizations', to: 'orgs#index'
 end

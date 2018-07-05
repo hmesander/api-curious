@@ -3,6 +3,6 @@
 </ul>
 <% @event_search.events.each do |event| %>
   <% event.commit_messages.each do |commit| %>
-    <li><%= event.repo %>: <%= link_to commit[:message], commit[:url] %></li>
+    <li class="commit"><%= event.repo %>: <%= link_to commit[:message], commit[:url] %></li>
   <% end %>
 <% end %>
