@@ -15,6 +15,32 @@ VCR.configure do |config|
   config.configure_rspec_metadata!
 end
 
+def stub_omniauth
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.mock_auth[:github] =
+  OmniAuth::AuthHash.new(
+    { "uid" => "33928379",
+      "info" => {
+        "nickname" => "hmesander",
+        "email" => "haleymesander@gmail.com",
+        "name" => "Haley Mesander",
+        "urls" => { "GitHub" => "https://github.com/hmesander", "Blog" => ""}
+      },
+      "credentials" => {"token" => ENV['token'] },
+      "extra" =>
+      {
+        "raw_info" =>
+        {
+           "avatar_url" => 'https://avatars0.githubusercontent.com/u/33385692?s=400&u=a0cfc39c9abc7b8fb80c85c6fc7999bdc96ed7b8&v=4',
+           "public_repos" => 44,
+           "followers" => 1,
+           "following" => 0,
+        }
+      }
+    }
+  )
+end
+
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end
