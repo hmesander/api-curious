@@ -26,7 +26,7 @@ def stub_omniauth
   )
 end
 
-feature 'User clicks on Repositories link' do
+feature 'User clicks on Organizations link' do
   include Capybara::DSL
 
   before(:each) do
@@ -34,15 +34,15 @@ feature 'User clicks on Repositories link' do
     stub_omniauth
   end
 
-  scenario 'they see a list of their repos', :vcr do
+  scenario 'they see a list of their organizations', :vcr do
     visit root_path
 
     click_link 'Sign in with Github'
-    click_link 'Repositories'
+    click_link 'Organizations'
 
-    expect(current_path).to eq('/hmesander/repos')
-    expect(page).to have_content('44 Repositories')
-    expect(page).to have_link('api-curious')
-    expect(page).to have_css('.repo', count: 44)
+    expect(current_path).to eq('/hmesander/organizations')
+    expect(page).to have_content('1 Organization')
+    expect(page).to have_link('test-org-18973')
+    expect(page).to have_css('.org', count: 1)
   end
 end
