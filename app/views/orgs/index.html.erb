@@ -1,5 +1,5 @@
 <ul>
-  <h2><%= @org_search.orgs.count %> Organizations</h2>
+  <h2><%= pluralize(@org_search.orgs.count, "Organization") %></h2>
 </ul>
 <% @org_search.orgs.each do |org| %>
   <li class="org"><%= link_to org.name, org.url %></li>

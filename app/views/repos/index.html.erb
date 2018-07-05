@@ -1,5 +1,5 @@
 <ul>
-  <h2><%= @repo_search.repos.count %> Repositories</h2>
+  <h2><%= pluralize(@repo_search.repos.count, "Repositories") %></h2>
 </ul>
 <% @repo_search.repos.each do |repo| %>
   <li class="repo"><%= link_to repo.name, repo.url %></li>
